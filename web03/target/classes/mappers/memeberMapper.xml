@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="member.Mapper">
+
+
+<select id="getTime" resultType="string">
+
+ select now()
+</select>
+
+
+<insert id="insertMember" >
+ insert into tbl_member (userid, userpw, username, email) VALUES (#{userid}, #{userpw}, #{username}, #{email} );
+ 
+</insert>
+
+
+<select id="meberList" resultType="MemberVO">
+ select * from tbl_member order by username
+</select>
+
+<select id="memeberInfo" resultType="MemberVO">
+ select * from tbl_member where userid=#{userid}
+</select>
+
+<select id="memberGetPassword" resultType="int">
+ select count(*) from tbl_member where userid=#{userid} and userpw=#{userpw}
+</select>
+
+
+<update id="memberUpdate">
+ UPDATE  tbl_member SET username = #{username} , email =#{email}, userpw=#{userpw},
+   updatedate=now() WHERE userid=#{userid};
+</update>
+
+
+<delete id="memberDelete">
+ delete from tbl_member where userid=#{userid}
+</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
