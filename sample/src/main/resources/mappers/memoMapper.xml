@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="memo">
+	<select id="memoList" resultType="memo.dto.MemoDTO">
+		select * from memo
+		order by idx
+		desc
+	</select>
+
+	<select id="memoDetail" resultType="memo.dto.MemoDTO">
+		select *
+		from memo
+		where
+		idx=#{idx}
+	</select>
+
+	<insert id="memoInsert">
+		insert into memo (idx,
+		writer, memo ) values
+		( (select
+		nvl(max(idx)+1,1) from memo),
+		#{writer}, #{memo} )
+	</insert>
+
+	<update id="memoUpdate">
+		update memo
+		set
+		writer=#{writer}, memo=#{memo}
+		where
+		idx=#{idx}
+	</update>
+
+	<delete id="memoDelete">
+		delete from memo where
+		idx=#{idx}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
