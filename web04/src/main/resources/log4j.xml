@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.example.spring01.controller">
+	<logger name="com.example.wbe04">
 		<level value="info" />
 	</logger>
 	

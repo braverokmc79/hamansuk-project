@@ -29,7 +29,34 @@ public class GuestBookDAOImpl implements GuestBookDAO {
 	@Override
 	public List<GuestBookDTO> gblist() throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace+".gblist");
+		
+		List<GuestBookDTO> list =null;
+		try{
+			list =sqlSession.selectList(namespace+".gblist");
+			
+			
+			for(GuestBookDTO dto : list){
+				
+				String content =dto.getContent();
+				//줄바꿈 
+				//칸띄우기
+				//<  태그 xmp
+				//스크립트 처리
+				String str=content.replace("\n", "<br>")
+						.replace("  ", "&nbsp;&nbsp;")
+						.replace("<", "&lt")
+						.replace(">", "&gt");
+			
+				dto.setContent(str);
+				logger.info(str);
+			}
+			
+		}catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 

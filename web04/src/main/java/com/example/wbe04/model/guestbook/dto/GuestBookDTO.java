@@ -14,7 +14,7 @@ public class GuestBookDTO {
 	 private String passwd;
 	 private String content;
 	 private Date post_date;
-	 
+	 private String passwdCk;
 	 
 	
 }
