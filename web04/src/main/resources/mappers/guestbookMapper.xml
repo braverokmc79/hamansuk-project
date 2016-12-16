@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	
 	<insert id="gbInsert">
 	
 	insert INTO guestbook (idx, name, email, passwd, content, post_date) 
@@ -18,6 +19,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		VALUES(null, #{name}, #{email}, #{passwd}, #{content}, null);
  
 	</insert>
+	
+	
+	<!-- 패스워드 체크 틀리면 0 맞으면 1 -->
+	<select id="passwordCheck" resultType="int">
+	 select  count(*) from guestbook where idx=#{idx} and passwd =#{passwdCk}	
+	</select>
+	
+	<!-- 내용 수정 -->
+	<update id="modifyGuestBook">
+		UPDATE  guestbook SET content =#{content}, email=#{email}, name=#{name} WHERE idx=#{idx};
+	</update>
+	
+	
+	<select id="passwdCk" resultType="int">
+	 select  count(*) from guestbook where idx=#{idx} and passwd =#{passwd}
+	</select> 
+	
+	
+	<select id="gbDetail" resultType="GuestBookDTO">
+	 select * from guestbook where idx =#{idx}
+	</select>
+	
+	
+	<select id="gbDelete" >
+		delete from  guestbook where idx =#{idx}
+	</select>
+	
 	
 </mapper>
 

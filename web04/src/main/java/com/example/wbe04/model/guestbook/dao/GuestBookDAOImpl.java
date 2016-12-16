@@ -1,6 +1,8 @@
 package com.example.wbe04.model.guestbook.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -48,7 +50,7 @@ public class GuestBookDAOImpl implements GuestBookDAO {
 						.replace(">", "&gt");
 			
 				dto.setContent(str);
-				logger.info(str);
+				//logger.info(str);
 			}
 			
 		}catch(Exception e){
@@ -72,4 +74,74 @@ public class GuestBookDAOImpl implements GuestBookDAO {
 		return result;
 	}
 
+
+
+	@Override
+	public int passwordCheck(GuestBookDTO dto) {	
+		int result=0;
+		/*Map<String, Object> paraMap =new HashMap<>();
+		paraMap.put("idx", dto.getIdx());
+		paraMap.put("passwdCk", dto.getPasswdCk());*/
+		try{
+			//글번호와 패스워드가 맞으면 1을 반환 
+			result=sqlSession.selectOne(namespace+".passwordCheck", dto);	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
+
+
+	@Override
+	public void modifyGuestBook(GuestBookDTO dto) throws Exception {
+		
+		
+		sqlSession.update(namespace+".modifyGuestBook", dto);
+	}
+
+
+
+	@Override
+	public int passwdCk(int idx, String passwd) {
+		int result =0;
+		
+		try{
+			Map<String , Object>  map =new HashMap<>();
+			map.put("idx", idx);
+			map.put("passwd", passwd);
+			
+			result=sqlSession.selectOne(namespace+".passwdCk", map);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+
+	@Override
+	public GuestBookDTO gbDetail(int idx) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".gbDetail", idx);
+	}
+
+
+
+	@Override
+	public void gbDelete(int idx) throws Exception {
+		
+		sqlSession.delete(namespace +".gbDelete" , idx);
+		
+	}
+	
+
+	
+	
+	
+	
+
 }
+
+
