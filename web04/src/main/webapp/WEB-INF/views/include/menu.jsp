@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%!
+		String uri="";
+ %>    
 
-    
+
     
     <div class="spinner"></div>
 <!--============================== header =================================-->
@@ -15,16 +19,33 @@
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">Menu <span class="icon-bar"></span> </a>
             <div class="nav-collapse nav-collapse_  collapse">
                   <ul class="nav sf-menu">
-                <li><a href="/guestbook/list">방명록</a></li>
-                <li class="sub-menu active"><a href="index-1.html">게시판</a>
+                
+                <%
+                   uri=request.getRequestURI();
+                // pageContext.setAttribute("uri", uri);
+               //  out.print(uri.contains("guestbook"));
+                %>
+                
+                
+                
+                <li  <c:if test='<%= uri.contains("guestbook") %>' > class="sub-menu active" </c:if>  >
+              	<a href="/guestbook/list" >방명록</a>
+              	</li>
+             
+                <li>
+                
+                <a href="index-1.html">게시판</a>
                       <ul>
                     <li><a href="#">수산물관리 </a></li>
                     <li><a href="#">Consecte</a></li>
                     <li><a href="#">Conseq</a></li>
                   </ul>
                     </li>
-                <li><a href="index-2.html">수산물관리</a></li>
-                <li><a href="index-3.html">상품관리</a></li>
+                <li ><a href="index-2.html">수산물관리</a></li>
+                <li <c:if test='<%= uri.contains("shop") %>' > class="sub-menu active" </c:if> >
+                <a href="/shop/product_list">상품관리</a>
+                
+                </li>
                 <li><a href="index-4.html">장바구니</a></li>
               </ul>
                 </div>
