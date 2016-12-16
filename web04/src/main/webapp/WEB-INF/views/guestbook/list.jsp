@@ -333,6 +333,13 @@ $(document).ready(function(){
 
 	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">수정</button>
   </section>
+
+           		<hr>
+	           	 <form action="/guestbook/view" method="post">
+	           		<input type="hidden" name="idx" value="${list.idx }" />
+	        		<input type="password"  name="passwd" placeholder="비밀번호 입력"  />	
+	        		<input type="submit" class="btn btn-primary"  value="비밀 번호 확인" />
+	       		</form>
  </div>
 </li>
 
