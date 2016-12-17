@@ -2,6 +2,41 @@
     pageEncoding="UTF-8"%>
 
 
+<form method="post" name="formPw" id="formPw" action="/shop/product_write">
+
+</form>
+
+
+<script>
+
+$(document).ready(function(){
+	
+	
+	var logOutMessage ="${logOutMessage}" ;
+	
+	if(logOutMessage.length >3){
+		alert(logOutMessage);
+	}
+	
+	$("#product_write").click(function(event){
+		
+		event.preventDefault();
+		
+		//alert("상품등록 페이지로 이동");
+		$("#formPw").submit();
+	});
+	
+	$("#productWriteBtn").click(function(event){
+		$("#formPw").submit();
+	});
+	
+	
+});
+
+
+</script>
+
+
 <!--============================== footer =================================-->
 <footer>
       <div class="container clearfix">

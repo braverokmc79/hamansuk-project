@@ -11,7 +11,7 @@ public class UploadPath {
 
 	public static String attach_path="resources/upload/";
 	
-	public static String path(MultipartFile file, HttpServletRequest request, Model model) throws Exception{
+	public static String path( HttpServletRequest request) throws Exception{
 		
 	  String root_path =request.getSession().getServletContext().getRealPath("/");
 		

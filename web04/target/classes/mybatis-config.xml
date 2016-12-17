@@ -7,6 +7,7 @@
 	<typeAliases>
 		<package name="com.example.wbe04.model.guestbook.dto" />
 		<package name="com.example.wbe04.model.shop.dto" />
+		<package name="com.example.wbe04.model.member.dto"/>
 	</typeAliases> 
 
 </configuration>

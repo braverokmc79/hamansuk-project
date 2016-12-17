@@ -18,9 +18,15 @@ public class UploadFileUtils {
 
 	private static final Logger logger =LoggerFactory.getLogger(UploadFileUtils.class);
 
-	
+	private static int thumSize=100;
+
+	public static void setThumSize(int thumSize) {
+		UploadFileUtils.thumSize = thumSize;
+	}
 	
 	public static String uploadFile(String uploadPath, String originalName, byte[] fileData) throws Exception{
+		
+		logger.info("UploadFileUtils 클래스 시작 uploadPath ="+ uploadPath);
 		
 		UUID uid =UUID.randomUUID();
 		
@@ -53,16 +59,16 @@ public class UploadFileUtils {
 		
 		String iconName =uploadPath +savedPath +savedName;
 		
-		
-	//	logger.info("  makeThumbnail  반환값  :  " + thumbnailName.replace(File.separatorChar,'/' ));
-		return iconName.substring(uploadPath.length()).replace(File.separatorChar, '/');
+		String result=iconName.substring(uploadPath.length()).replace(File.separatorChar, '/');
+	  logger.info("  makeThumbnail  반환값  :  " + result);
+		return result;
 	}
 
 
 
 	private static String calcPath(String uploadPath){
 		
-		
+		logger.info("calcePath 시작 :");
 		Calendar cal =Calendar.getInstance();
 		
 		String yearPath=File.separator + cal.get(Calendar.YEAR);
@@ -79,8 +85,8 @@ public class UploadFileUtils {
 	
 	
 	private static void makeDir(String uploadPath, String...paths){
-		
-		if(new File(paths[paths.length+1]).exists()){
+		logger.info("makeDir 시작");
+		if(new File(paths[paths.length-1]).exists()){
 			return;
 		}
 		
@@ -98,7 +104,7 @@ public class UploadFileUtils {
 		
 		BufferedImage sourceImg =ImageIO.read(new File(uploadPath+path, fileName));
 		
-		BufferedImage destImg =Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 100);
+		BufferedImage destImg =Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, thumSize);
 		
 		String thumbnailName =uploadPath +path +File.separator+"s_" + fileName;
 		

@@ -30,23 +30,46 @@
                 
                 <li  <c:if test='<%= uri.contains("guestbook") %>' > class="sub-menu active" </c:if>  >
               	<a href="/guestbook/list" >방명록</a>
+              		<ul>
+                    <li><a href="/guestbook/write">방명록 등록</a></li>
+                  </ul>
               	</li>
+             	
+             	<li ><a href="index-2.html">수산물관리</a></li>
              
-                <li>
+                <li <c:if test='<%= uri.contains("shop") %>' > class="sub-menu active" </c:if> >
+                <a href="/shop/product_list">상품관리</a>
+                <c:if test="${loginUser.userid=='admin' }">
+                	<ul>
+                		 <li><a href="/shop/product_write" id="product_write">상품등록</a></li>
+                	</ul>
+                </c:if>
                 
+                </li>
+                
+               <li><a href="index-4.html">장바구니</a></li>
+             
+             
+                <li> 
                 <a href="index-1.html">게시판</a>
-                      <ul>
+                 <ul>
                     <li><a href="#">수산물관리 </a></li>
                     <li><a href="#">Consecte</a></li>
                     <li><a href="#">Conseq</a></li>
                   </ul>
-                    </li>
-                <li ><a href="index-2.html">수산물관리</a></li>
-                <li <c:if test='<%= uri.contains("shop") %>' > class="sub-menu active" </c:if> >
-                <a href="/shop/product_list">상품관리</a>
-                
-                </li>
-                <li><a href="index-4.html">장바구니</a></li>
+               </li>
+               <c:choose>
+               
+               
+              <c:when test="${ not empty loginUser }">
+              	<li><a href="">${ loginUser.username} 님 </a></li>
+              	<li><a href="/member/logout">로그아웃</a></li>
+              </c:when>
+                <c:otherwise>
+                <li><a href="/member/login">로그인</a></li>
+              </c:otherwise>
+              </c:choose>
+
               </ul>
                 </div>
           </div>

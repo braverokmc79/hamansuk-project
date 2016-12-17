@@ -35,6 +35,36 @@ public class ProductDAOImpl implements ProductDAO {
 		return list;
 	}
 
+	@Override
+	public ProductDTO productDetail(int product_id) {
+		// TODO Auto-generated method stub
+		
+		ProductDTO dto =null;
+		try {
+			
+			dto=sqlSession.selectOne(namespace+".productDetail", product_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return dto;
+	}
+
+	@Override
+	public int  product_write(ProductDTO dto) {
+		int result=0;
+		try {
+			sqlSession.insert(namespace+".product_write", dto);
+			result=1;
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+		}
+		return result;
+	}
+
+	
+	
+	
 }
 
 

@@ -26,4 +26,22 @@ public class MediaUtils {
 	}
 	
 	
+	//이미지 매치
+	public static boolean imageMatch(String image){
+		
+		boolean result =false;
+		
+		if(image.equals("JPG")){
+			result=true;
+		}else if(image.equals("JPEG")){
+			result=true;
+		}else if(image.equals("GIF")){
+			result=true;
+		}else if(image.equals("PNG")){
+			result=true;
+		}
+		return result;
+	}
+	
+	
 }

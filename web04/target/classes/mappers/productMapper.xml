@@ -8,8 +8,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="productList" resultType="ProductDTO">
-	   select * from product order by product_name
+	   select * from product order by regdate desc
 	</select>
+	
+	<select id="productDetail" resultType="ProductDTO">
+		select * from product where product_id =#{product_id}
+	</select>
+	
+	
+	<insert id="product_write">
+		INSERT INTO product(product_id,
+                product_name,
+                price,
+                description,
+                picture_url,
+                regdate, original_picture_url)
+ 		VALUES 	 (null, #{product_name},  #{price}, #{description}, #{picture_url}, null, #{original_picture_url})
+	</insert>
+	
+
+		
 	
 	
 	

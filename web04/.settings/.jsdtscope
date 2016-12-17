@@ -7,7 +7,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
-	<classpathentry excluding="**/*.js|src/main/webapp/resources/template/js/forms.js" kind="src" path=""/>
+	<classpathentry excluding="**/*.js|**/forms.js|src/main/webapp/resources/template/js/|src/main/webapp/resources/template/js/forms.js" kind="src" path=""/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.wst.jsdt.launching.InternetExplorer"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.wst.jsdt.launching.FireFoxBrowserLibrary"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.wst.jsdt.USER_LIBRARY/bootstrap"/>

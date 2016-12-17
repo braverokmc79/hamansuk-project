@@ -7,6 +7,10 @@ import com.example.wbe04.model.shop.dto.ProductDTO;
 public interface ProductDAO {
 
 	public List<ProductDTO> productList();
+
+	public ProductDTO productDetail(int product_id);
+
+	public int product_write(ProductDTO dto);
 	
 	
 }

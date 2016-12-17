@@ -13,24 +13,49 @@
     <div class="container">
           <div class="row">
         <article class="span12">
-        <h3>Folio</h3>
+        <h3>상품관리</h3>
+        <c:if test="${ loginUser.userid=='admin' }">     
+        	<button type="button" class="btn btn-info btn-lg" style="float: right; margin-bottom: 10px;" id="productWriteBtn">상품등록</button>
+        </c:if>
+        
+        
          </article>
         <div class="clear"></div>
-        
-        <ul class="portfolio clearfix">
-        	<c:forEach items="${list }" var="row">	
-        		<li class="box">
-	        		<p>${row.product_id }</p>
-	        		<p>
-	        		<a href="/product_detail.do?product_id=${row.product_id }" >
-	        		${row.product_name }</a></p>
-	        		<p>${row.price}</p>
-	        		
-        		</li>
-        	
-        	</c:forEach>  
-        </ul>
-        
+          			
+<div class="container">
+	<div class="row">
+	
+	<c:forEach items="${list }" var="row">	
+		<div class="span4" style="margin-bottom: 10px;">
+	     	<div class="thumb-pad">
+				<div class="thumbnail">
+					
+					<div class="box" style="text-align: center;">
+					<a href="/resources/template/img/image-blank.png" class="magnifier"> 
+						<img src="${row.picture_url }" alt="">
+					</a>
+					</div>
+					
+					<div class="caption">
+					<h5> <small>상품번호</small> : ${row.product_id }</h5>
+					<p>
+	        		상품명 : <a href="/shop/product_detail?product_id=${row.product_id }" >${row.product_name }</a>
+					</p>
+					<p>상품 가격 : ${row.price}</p>
+					<a href="/shop/product_detail?product_id=${row.product_id }" class="btn">상세보기</a>
+				  </div>
+			   </div>
+		  </div>
+     </div>
+
+   </c:forEach>
+     
+     
+</div>
+</div>
+	         
+	         
+
          <ul class="portfolio clearfix">           
           <li class="box"><a href="/resources/template/img/image-blank.png" class="magnifier" ><img alt="" src="/resources/template/img/page3-img1.jpg"></a></li> 
            <li class="box"><a href="/resources/template/img/image-blank.png" class="magnifier" ><img alt="" src="/resources/template/img/page3-img2.jpg"></a></li> 

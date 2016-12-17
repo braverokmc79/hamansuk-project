@@ -95,7 +95,7 @@
 
 
 <!-- Modal -->
-<div id="myModal" class="modal modal-primary fade" role="dialog">
+<div id="myModal" class="modal modal-primary fade" role="dialog" style="display: none;">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">

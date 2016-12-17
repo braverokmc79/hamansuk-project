@@ -8,38 +8,61 @@
 <%@ include file="../include/menu.jsp"  %>
 
 
-
-<div class="bg-content"> 
-      
-      <!--============================== content =================================-->
-      
-      <div id="content"><div class="ic"></div>
-    <div class="container">
-          <div class="row">
-        <article class="span12">
-              <h3>등록</h3>
-            
-             
-        </article>
-        <div class="clear"></div>
+<div class="bg-content">       
+  <!--============================== content =================================-->      
 
 
-  	</div>
+<div class="container">
 
 
 
-		<div class="span12">
 
-        			<form role="form1" method="post">
-					<div class="box-body">
-						<div class="form-group">
-							<label for="exampleInputEmail1">이름</label> <input type="text"
-								name='name' class="form-control" placeholder="이름">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">이메일</label> <input type="email"
+ <h3>방명록 등록</h3>
+
+<div class="mini-layout">
+            <div class="mini-layout-body">
+       	
+	
+	<div class="row">
+	
+
+		
+		<div class="span12" style="margin-bottom: 10px; text-align: ;" >
+	     	
+
+        			<form role="form1" method="post" >
+					<div>
+				     	<c:choose>
+								<c:when test="${not empty loginUser }">
+								
+								<div class="form-group">
+								<label for="exampleInputEmail1">이름</label> 
+								<input type="text"	name='name' class="form-control" value="${loginUser.username }" readonly="readonly"  style="color:white;">	
+								</div>
+								
+								
+							    <div class="form-group">
+								<label for="exampleInputEmail1">이메일</label> <input type="email"
+								name='email' class="form-control" value="${loginUser.email }" readonly="readonly"  style="color:white;">
+								 </div>
+								
+								</c:when>
+								<c:otherwise>
+								
+								<div class="form-group">
+								<label for="exampleInputEmail1">이름</label> 
+								<input type="text"	name='name' class="form-control" placeholder="이름" >
+								</div>
+								
+							    <div class="form-group">
+								<label for="exampleInputEmail1">이메일</label> <input type="email"
 								name='email' class="form-control" placeholder="email">
-						</div>
+								 </div>
+										
+								</c:otherwise>
+							</c:choose>
+						
+
 						
 						<div class="form-group">
 							<label for="exampleInputEmail1">패스워드</label> <input type="password"
@@ -59,20 +82,25 @@
 						<button type="submit" class="btn btn-info">등록하기</button>
 						<button type="reset" class="btn btn-danger">취소</button>
 					</div>
-				</form>
-        
-        
-        
-        </div>
-        
-        
-          
-        </div>
+				</form>	  
+		  
+		  </div>
+   
+
+
+ 
+</div> <!-- row -end -->
+
+
+            </div>
   </div>
-    </div>
-  
+	      
 
 
 
+</div>
+</div>
+	         
+	         
 <%@  include file="../include/footer.jsp" %>
 
