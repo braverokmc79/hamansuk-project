@@ -62,6 +62,26 @@ public class ProductDAOImpl implements ProductDAO {
 		return result;
 	}
 
+	@Override
+	public int product_edit(ProductDTO dto) {
+		int result=0;
+		try {
+			sqlSession.update(namespace+".product_edit", dto);
+			result=1;
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+		}
+		return result;
+	}
+
+	@Override
+	public void productDelete(int product_id) {
+
+		sqlSession.delete(namespace+(".productDelete"), product_id);
+		
+	}
+
+
 	
 	
 	

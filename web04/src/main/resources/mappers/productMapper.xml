@@ -26,8 +26,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  		VALUES 	 (null, #{product_name},  #{price}, #{description}, #{picture_url}, null, #{original_picture_url})
 	</insert>
 	
+	
+	<update id="product_edit">
+		update product SET description=#{description}, original_picture_url=#{original_picture_url}, 
+ 			picture_url=#{picture_url}, price=#{price}, product_name=#{product_name} 
+ 			, product_name=#{product_name} where product_id=#{product_id} 
+	</update>
 
-		
+	
+	<delete id="productDelete">
+		delete from product where product_id=#{product_id}
+	</delete>
+	
 	
 	
 	

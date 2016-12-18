@@ -11,6 +11,9 @@ public interface ProductDAO {
 	public ProductDTO productDetail(int product_id);
 
 	public int product_write(ProductDTO dto);
-	
+
+	public int product_edit(ProductDTO dto);
+
+	public void productDelete(int product_id);
 	
 }

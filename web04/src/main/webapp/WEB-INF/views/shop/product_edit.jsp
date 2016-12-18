@@ -33,7 +33,7 @@
 					
 <div class="table-responsive">
 
-<form  role="formW1"  id=""	method="post"  enctype="multipart/form-data" action="/shop/product_write_w">
+<form  role="formW1"  	method="post"  enctype="multipart/form-data" action="/shop/product_update">
 <table class="table table-bordered table-striped" style="background-color: white; margin: 10px 0 10px 0;">
 <colgroup>
 
@@ -43,21 +43,30 @@
 <thead>
 <tr class="alt">
 <th>클래스</th>
-<th>설명   <span style="color: red;"> ${uploadError }</span><button type="button" id="goList" class="btn btn-info btn-lg" style="float:right;">상품 목록 가기</button>   </th></tr></thead>
+<th>설명   <span style="color: red;"> ${uploadError }</span><button type="button" id="goList" class="btn btn-info btn-lg" style="float:right;">상품 목록 가기</button> 
+</th></tr></thead>
 
 <tbody>
 <tr>
+	<td>상품 이미지</td>
+	<td><img src="${dto.picture_url }"></td>
+</tr>
+<tr>
 <td><code>상품 번호</code> </td>
-<td>${dto.product_id }</td></tr>
+<td>${dto.product_id }
+<input type="hidden" name="product_id" value="${dto.product_id}">
+<input type="hidden" name=picture_url value="${dto.picture_url}">
+<input type="hidden" name="original_picture_url" value="${dto.original_picture_url}">
+</td></tr>
 <tr class="alt">
 <td><code>상품명</code> </td>
-<td><input class="span5" type="text"   name="product_name" id="product_name"></td></tr>
+<td><input class="span5" type="text"   name="product_name" id="product_name" value="${dto.product_name }"></td></tr>
 <tr>
 <td><code>상품 가격</code> </td>
-<td><input class="span5" type="text" name="price" id="price"></td></tr>
+<td><input class="span5" type="text" name="price" id="price" value="${dto.price }"></td></tr>
 <tr class="alt">
 <td><code>상세 내용</code> </td>
-<td> <textarea class="span5"  name="description" id="description"></textarea></td>
+<td> <textarea class="span5"  name="description" id="description" >${dto.description }</textarea></td>
 </tr>
 
 <tr class="alt">
@@ -67,9 +76,7 @@
 
 
 <tr class="alt">
-<td colspan="2"><button type="submit" class="btn btn-info btn-lg" id="subBtn">제출</button>
-
-<button type="button" class="btn btn-danger" id="btnAdd">Ajax 로 전송</button>
+<td colspan="2"><button type="submit" class="btn btn-info btn-lg" id="subBtn">수정</button>
 
 </td>
 </tr>
@@ -79,20 +86,15 @@
 </table>
 </form>	
 
-
+						 <form method="post" action="/shop/product_delete">
+						 <input type="hidden" value="${dto.product_id }" name="proudctId" >
+						 <button class="btn btn-danger" type="submit" >삭제</button>
+						</form>
 
 
 </div>
 					
-				
-
-
- 
-
-
-
-
-
+		
 
 				  </div>
 			   </div>
@@ -113,7 +115,7 @@
 </div>
 	         
 
-<!--   관리자마 접급  -->
+<!--   관리자만 접급  -->
 <%@ include  file="../include/adminConfirm.jsp" %>
 
 

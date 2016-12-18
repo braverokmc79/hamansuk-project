@@ -24,6 +24,9 @@
                    uri=request.getRequestURI();
                 // pageContext.setAttribute("uri", uri);
                //  out.print(uri.contains("guestbook"));
+                
+                 out.print(application.getRealPath("/") +"<br>");
+                  //out.print(request.getSession().getServletContext().getRealPath("/"));
                 %>
                 
                 
