@@ -3,4 +3,4 @@ RemoteSystemsTempFiles/
 Servers/
 .recommenders/
 External Files/
-web04/src/main/webapp/WEB-INF/spring/appServlet/datasource-contex.xml
+web04/src/main/webapp/WEB-INF/spring/appServlet/datasource-context.xml

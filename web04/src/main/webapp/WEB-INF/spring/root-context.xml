@@ -17,7 +17,7 @@
 		<property name="username" value="1111" />
 		<property name="password" value="1111" />
 	</bean> -->
-	<import resource="appServlet/datasource-contex.xml"/>
+	<import resource="appServlet/datasource-context.xml"/>
 	
 	<!-- 아파치 DBCP 설정 -->
 	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
