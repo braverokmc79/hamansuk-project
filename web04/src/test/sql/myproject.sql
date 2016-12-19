@@ -25,17 +25,16 @@ CREATE TABLE guestbook
 
 --상품 상세
 
-create table product(
-
-  product_id int primary key  auto_increment, 
-  product_name varchar(200),
-  price int(6),
-  description text,
-  picture_url varchar(500),
-  regdate TIMESTAMP DEFAULT now()
-
+CREATE TABLE product
+(
+   product_id             int(11) AUTO_INCREMENT PRIMARY KEY ,
+   product_name           varchar(200),
+   price                  int(6),
+   description            text,
+   picture_url            varchar(500),
+   regdate                timestamp DEFAULT 'CURRENT_TIMESTAMP',
+   original_picture_url   varchar(200)
 );
-
 
 INSERT INTO tbl_member(userid,
                        userpw,
@@ -330,3 +329,29 @@ insert into tbl_member (userid, userpw, username, email, regdate, updatedate, te
 COMMIT;
 
 
+
+
+--장바구니 테이블
+create table cart(
+ 
+ idx int PRIMARY KEY AUTO_INCREMENT ,
+ userid VARCHAR(50) not null,
+ product_id int not null,
+ amount int default 1
+ );
+
+
+--뷰 테이블 생성
+ 
+create or replace view cart_v as
+
+select idx, product_name, price, amount, m.userid as userid , p.product_id as product_id, 
+	picture_url,
+ price*amount as money
+ from cart c , tbl_member m, product p
+ where c.userid=m.userid
+ and c.product_id=p.product_id
+ order by idx;
+ 
+ 
+ 

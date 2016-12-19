@@ -66,7 +66,10 @@ public class MemberController {
 	public String logout(HttpSession session, RedirectAttributes rttr){
 		logger.info("login out 호출 ....");
 		
+		
 		session.removeAttribute("loginUser");
+		session.invalidate();
+		
 		rttr.addFlashAttribute("logOutMessage", "로그 아웃 되었습니다.");
 		return "redirect:/";
 	}

@@ -41,7 +41,7 @@
              	<li ><a href="index-2.html">수산물관리</a></li>
              
                 <li <c:if test='<%= uri.contains("shop") %>' > class="sub-menu active" </c:if> >
-                <a href="/shop/product_list">상품관리</a>
+                <a href="/shop/product_list">상품</a>
                 <c:if test="${loginUser.userid=='admin' }">
                 	<ul>
                 		 <li><a href="/shop/product_write" id="product_write">상품등록</a></li>
@@ -50,7 +50,7 @@
                 
                 </li>
                 
-               <li><a href="index-4.html">장바구니</a></li>
+               <li <c:if test='<%= uri.contains("cart") %>' > class="sub-menu active" </c:if>><a href="/cart/cart_list">장바구니</a></li>
              
              
                 <li> 

@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.wbe04.util.FormTagReplace;
+
 import lombok.Data;
 
 @Data
@@ -25,5 +27,13 @@ public class ProductDTO {
 	 private MultipartFile file1;
 	 
 	 
-	 
+	
+	public String getProduct_name() {
+		return FormTagReplace.chagne(product_name);
+	}
+	
+	public String getDescription() {
+		return  FormTagReplace.chagne(description);
+	}
+	
 }

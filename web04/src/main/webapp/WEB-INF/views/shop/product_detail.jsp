@@ -59,8 +59,30 @@
 <td><code>상품 가격</code> </td>
 <td>${dto.price}</td></tr>
 <tr class="alt">
-<td><code>상세 내용</code> </td>
-<td>${dto.description }</td></tr></tbody></table>
+<td><code>비고</code> </td>
+<td>${dto.description }</td></tr>
+</tbody>
+<tfoot>
+<tr>
+	<td><code style="btn btn-primary">장바구니</code></td>
+	<td>
+	<form name="form1" method="post" action="/cart/cart_add">
+		<input type="hidden" name="product_id" value="${dto.product_id }">
+		<input type="hidden" name="price" value="${dto.price }">
+		<input type="hidden" name="product_name" value="${dto.product_name }">
+		<input type="hidden" name="picture_url" value="${dto.picture_url }">
+		<select name="amount" >
+			<c:forEach begin="1" end="10" var="i">
+				<option value="${i}">${i}</option>
+			</c:forEach>
+		</select>
+		<input type="submit" value="장바구니에 담기" class="btn btn-info" >
+	</form>
+	</td>
+</tr>
+</tfoot>
+
+</table>
 </div>
 					
 					
@@ -80,10 +102,23 @@
 	      
 
 
-
-
 </div>
 	         
+
+
+
+<script>
+
+
+function checkLogin(){
+	
+	
+
+	
+}
+
+
+</script>
 	         
 
 

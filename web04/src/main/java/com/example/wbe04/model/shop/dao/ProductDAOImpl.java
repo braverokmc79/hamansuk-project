@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.example.wbe04.model.guestbook.dto.GuestBookDTO;
 import com.example.wbe04.model.shop.dto.ProductDTO;
 
 @Repository
@@ -53,9 +54,23 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public int  product_write(ProductDTO dto) {
 		int result=0;
-		try {
+		try {		
+				String content =dto.getDescription();
+				//줄바꿈 
+				//칸띄우기
+				//<  태그 xmp
+				//스크립트 처리
+				String str=content.replace("\n", "<br>")
+						.replace("  ", "&nbsp;&nbsp;")
+						.replace("<", "&lt")
+						.replace(">", "&gt");
+			
+				dto.setDescription(str);
+				//logger.info(str);
+			
 			sqlSession.insert(namespace+".product_write", dto);
 			result=1;
+			
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 		}

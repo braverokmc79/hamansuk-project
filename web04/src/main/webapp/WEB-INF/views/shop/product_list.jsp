@@ -44,7 +44,7 @@
 					<p>상품 가격 : ${row.price}</p>
 					<a href="/shop/product_detail?product_id=${row.product_id }" class="btn btn-1">상세보기</a>
 					
-					<c:if test="${not empty loginUser }">
+					<c:if test="${loginUser.userid=='admin' }">
 						
 						<button style="float:right; display: inline-block; " class="btn btn-info btn-lg" type="button" onclick="productEdit( ${row.product_id });">편집</button>
 						 <form method="post" action="/shop/product_delete">
@@ -65,7 +65,7 @@
 </div>
 </div>
 	         
-	         
+<!-- 	         
 
          <ul class="portfolio clearfix">           
           <li class="box"><a href="/resources/template/img/image-blank.png" class="magnifier" ><img alt="" src="/resources/template/img/page3-img1.jpg"></a></li> 
@@ -85,6 +85,8 @@
            <li class="box"><a href="/resources/template/img/image-blank.png" class="magnifier" ><img alt="" src="/resources/template/img/page3-img15.jpg"></a></li> 
            <li class="box"><a href="/resources/template/img/image-blank.png" class="magnifier" ><img alt="" src="/resources/template/img/page3-img16.jpg"></a></li>                       
             </ul> 
+      -->
+     
       </div>
         </div>
   </div>
