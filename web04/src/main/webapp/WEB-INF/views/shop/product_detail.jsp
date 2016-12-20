@@ -67,6 +67,7 @@
 	<td><code style="btn btn-primary">장바구니</code></td>
 	<td>
 	<form name="form1" method="post" action="/cart/cart_add">
+	 
 		<input type="hidden" name="product_id" value="${dto.product_id }">
 		<input type="hidden" name="price" value="${dto.price }">
 		<input type="hidden" name="product_name" value="${dto.product_name }">
@@ -107,18 +108,7 @@
 
 
 
-<script>
 
-
-function checkLogin(){
-	
-	
-
-	
-}
-
-
-</script>
 	         
 
 

@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 
 	<insert id="cartAdd">
-		insert into cart (idx, userid, product_id, amount, ) 
+		insert into cart (idx, userid, product_id, amount ) 
 	  value(null, #{userid}, #{product_id}, #{amount} );
 	</insert>
 	
@@ -16,6 +16,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * from cart_v where userid=#{userid}
 	</select>
 	
+	<delete id="delete">
+		delete from cart where idx=#{idx}
+	</delete>
+	
+	
+	<delete id="cartDelAll">
+			delete from cart where userid=#{userid}
+	</delete>
 	
 	
 </mapper>

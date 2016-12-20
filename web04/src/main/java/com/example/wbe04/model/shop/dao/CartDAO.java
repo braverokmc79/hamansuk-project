@@ -9,6 +9,10 @@ public interface CartDAO {
 	public void cartAdd(CartDTO dto);
 
 	public List<CartDTO> getList(String userid);
+
+	public void delete(Integer idx);
+
+	public void cartDelAll(String userid);
 	
 	
 }

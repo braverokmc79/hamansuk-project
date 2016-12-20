@@ -15,7 +15,7 @@ $(document).ready(function(){
 	if(loginUser!="admin"){
 		
 		alert("관리자만 접근 가능합니다.");
-		location.href="/";
+		location.href="/shop/product_list";
 	}
 	
 

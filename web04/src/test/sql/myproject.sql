@@ -353,5 +353,15 @@ select idx, product_name, price, amount, m.userid as userid , p.product_id as pr
  and c.product_id=p.product_id
  order by idx;
  
+
  
+-- 쿼리 합계
+select sum(money) money,
+	case
+		when sum(money) >= 50000 then 0
+		when sum(money) < 50000 then 2500
+	end as fee
+
+from cart_v
+where userid="admin";
  

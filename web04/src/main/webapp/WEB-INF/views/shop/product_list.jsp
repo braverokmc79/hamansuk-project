@@ -7,6 +7,8 @@
 
 <%@ include file="../include/menu.jsp"  %>
 
+
+
 <div class="bg-content">       
   <!--============================== content =================================-->      
       <div id="content"><div class="ic"></div>
@@ -96,14 +98,6 @@
 
 <script>
 
-
-$(document).ready(function(){
-	
-
-	
-	
-	
-});
 
 
 

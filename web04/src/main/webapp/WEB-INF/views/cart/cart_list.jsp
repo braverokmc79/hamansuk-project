@@ -28,8 +28,14 @@
            <div class="cart-view-table">
              <form action="">
                <div class="table-responsive">
-                  
-              
+            
+            <c:choose>
+	            <c:when test="${ not empty sessionScope.cart_add or  not empty userCart}">
+	               <button type="button"  class="btn btn-danger" onclick="cartDelAll()" style="float:right; margin-bottom: 10px;">장바구니 비우기</button>
+	             </c:when>
+	             <c:otherwise>
+	             </c:otherwise>
+             </c:choose>  
                   <table class="table">
                     <thead>
                       <tr>
@@ -39,6 +45,7 @@
                         <th>가격</th>
                         <th>수량</th>
                         <th>합계</th>
+                        <th>선택</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -59,7 +66,8 @@
 							<td>${dto.price }</td>
 							<td><input class="aa-cart-quantity" type="number" value="${dto.amount }"></td>
 							<td class="money">${dto.money }</td>
-						</tr>
+							<td><button  class="btn btn-danger"  data-idx="${dto.idx}" type="button" onclick="cartDelete(${dto.idx})">삭제</button></td>
+					</tr>
 			
 				</c:forEach>
 			</c:when>
@@ -95,6 +103,9 @@
 					<td>${dto.price }</td>
 					<td><input class="aa-cart-quantity" type="number" value="${dto.amount }"></td>
 					<td class="money">${dto.money }</td>
+					
+					<!--  비로그인 한 유저라 idx 값이 없다 따라서 product_id 값 사용 -->
+					<td><button  class="btn btn-danger"  data-idx="${dto.idx}" type="button" onclick="cartDelete(${dto.product_id})">삭제</button></td>
 				</tr>
 			<%		
 				}
@@ -180,6 +191,102 @@ $(document).ready(function(){
 	
 	
 });
+
+function cartDelete(idx){
+	
+	var loginUser="${loginUser.username}";
+	//alert(" loginUser :" +loginUser + " :" + idx +" length"+loginUser.length);
+	if(loginUser.length >1){
+		//alert("삭제  : " + idx + " : " + loginUser);	
+		$.ajax({
+			
+			type:"delete",
+			url:"/cart/delete1/" +idx +"/"+loginUser,
+			headers:{
+				"Content-Type" :"application/json",
+				"X-HTTP-Method-Override" :"DELETE"
+			},
+			dataType: "text",
+			success:function(result){
+				if(result=="SUCCESS"){
+					location.href="/cart/cart_list";
+				}
+				
+			}
+					
+		});	
+		
+	}else if(loginUser.length ==0){
+		
+		//alert("비로그인");
+		$.ajax({	
+				
+			      type:"delete",
+					url:"/cart/delete2/" +idx,
+					headers:{
+						"Content-Type" :"application/json",
+						"X-HTTP-Method-Override" :"DELETE"
+					},
+					dataType: "text",
+					success:function(result){
+						if(result=="SUCCESS"){
+							location.href="/cart/cart_list";
+						}
+						
+					}
+							
+				});
+
+	}
+	
+
+}
+
+
+
+//장바구니 전체 삭제
+function cartDelAll(){
+	
+	var loginUserid="${loginUser.userid}";
+	
+	if(confirm("정말 장바구니를 전부 비우시겠습니까?")){
+		
+		
+		if(loginUserid.length ==0){
+			
+			//alert("비로그인 ");
+			
+			
+			location.href="/cart/cartdelAll";
+			
+		}else if(loginUserid.length >2){
+			
+			//alert("로그인 아이디 :" + loginUserid + "  loginUserid.length :" + loginUserid.length);
+
+			$.ajax({
+				
+				type:"DELETE",
+				url :"/cart/cartdelAll2/"+ loginUserid,
+				headers :{
+					"Content-Type" :"application/json",
+					"X-Http-Method-Override" : "DELETE"
+				},
+				dataType :"text",
+				success:function(result){
+					if(result=="SUCCESS"){
+						location.href="/cart/cart_list";
+					}else{
+						alert("삭제 오류");
+					}	
+				}
+				
+			})
+		}	
+		
+	}
+
+
+}
 
 </script>
 

@@ -47,6 +47,31 @@ public class CartDAOImpl implements CartDAO {
 		}	
 		return list;
 	}
+
+
+	@Override
+	public void delete(Integer idx) {
+		// TODO Auto-generated method stub
+		logger.info("CartDAOImpl -> delete ");
+		try{
+			sqlSession.delete(namespace+".delete" , idx);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+	}
+
+
+	@Override
+	public void cartDelAll(String userid) {
+		
+		logger.info("CartDAOImp -> cartDelAll ") ;
+		try{
+			 sqlSession.delete(namespace+".cartDelAll" , userid);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 	
 	
 	
