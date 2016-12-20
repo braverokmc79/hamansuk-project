@@ -376,3 +376,39 @@ create table memo (
 
 );
 
+
+
+--게시판 테이블
+
+create table board(
+
+	idx int not null primary key AUTO_INCREMENT ,
+	userid VARCHAR(50) not null,
+	subject VARCHAR(100) not null,
+	content text not null,
+	hit int(7) DEFAULT 0 COMMENT "조회수",
+	post_date TIMESTAMP DEFAULT now(),
+	filename VARCHAR (100),
+	filesize int default 0,
+	down int default 0 COMMENT "다운로드 횟수",
+	ref int default 0 COMMENT "게시물 그룹 ID",
+	depth int default 0 COMMENT "답변 단계",
+	reorder int default 0 COMMENT "그룹 내에서의 순서"
+);
+
+
+
+--글쓰기 (답변이 아닌 경우)
+
+insert INTO board (idx, userid, subject, content,  ref)
+
+ 	value(null, "braverokmc", "제목", "내용", 1);
+
+
+-- 이름이 나오게 하기 위해서 member table과 조인
+-- 
+select idx, username, subject, post_date, hit, ref, depth,	
+	reorder from board b , tbl_member m
+	where b.userid =m.userid
+	order by b.idx desc; 
+
