@@ -10,3 +10,4 @@ web04/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 web04/target/m2e-wtp/web-resources/META-INF/maven/com.example/web04/pom.properties
 
 web04/target/m2e-wtp/web-resources/.gitignore
+.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/segments.gen
