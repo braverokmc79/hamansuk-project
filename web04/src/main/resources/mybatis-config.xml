@@ -9,6 +9,8 @@
 		<package name="com.example.wbe04.model.shop.dto" />
 		<package name="com.example.wbe04.model.member.dto"/>
 		<package name="com.example.wbe04.model.shop.dto"/>
+		<package name="com.example.wbe04.model.memo.dto"/>
+		
 	</typeAliases> 
 
 </configuration>

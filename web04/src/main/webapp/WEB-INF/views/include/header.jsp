@@ -64,7 +64,7 @@
 
 	</head>
 
-	<body>
+		<body>
 
 <%-- <%
 			MemberDTO  dto =new MemberDTO();
@@ -78,7 +78,6 @@
 
 %>
  --%>
-
 
 
 

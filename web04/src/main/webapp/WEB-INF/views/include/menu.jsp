@@ -38,7 +38,7 @@
                   </ul>
               	</li>
              	
-             	<li ><a href="index-2.html">수산물관리</a></li>
+             	<li <c:if test='<%= uri.contains("memo") %>' > class="sub-menu active" </c:if>  ><a href="/memo/list">한줄메모장</a></li>
              
                 <li <c:if test='<%= uri.contains("shop") %>' > class="sub-menu active" </c:if> >
                 <a href="/shop/product_list">상품</a>

@@ -365,3 +365,14 @@ select sum(money) money,
 from cart_v
 where userid="admin";
  
+
+-- 메모 테이블
+create table memo (
+
+ idx int auto_increment primary key,
+ writer varchar(100),
+ memo text,
+ write_date Timestamp default now()
+
+);
+

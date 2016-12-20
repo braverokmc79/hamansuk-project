@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="memo.Mapper">
+	
+
+	<select id="memoList" resultType="MemoDTO">
+		select * from memo order by write_date desc
+	</select>
+	
+	<insert id="memoAdd">
+		insert into memo  (idx, writer, memo, write_date)  value (null, #{writer} , #{memo}, null)
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

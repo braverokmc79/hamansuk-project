@@ -6,8 +6,8 @@ public class FormTagReplace {
 	public static String chagne(String str){	
 		String change=str.replace("\n", "<br>")
 					.replace("  ", "&nbsp;&nbsp;")
-					.replace("<", "&lt")
-					.replace(">", "&gt");
+					.replace("<", "&lt;")
+					.replace(">", "&gt;");
 		 return change;
 	}
 	
