@@ -3,11 +3,62 @@ RemoteSystemsTempFiles/
 Servers/
 .recommenders/
 External Files/
-web04/src/main/webapp/WEB-INF/spring/appServlet/datasource-context.xml
-web04/.classpath
-External Files/.project
-web04/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
-web04/target/m2e-wtp/web-resources/META-INF/maven/com.example/web04/pom.properties
 
-web04/target/m2e-wtp/web-resources/.gitignore
-.recommenders/index/http___download_eclipse_org_recommenders_models_neon_/segments.gen
+
+
+# Created by https://www.gitignore.io/api/eclipse
+
+### Eclipse ###
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# Eclipse Core
+.project
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# End of https://www.gitignore.io/api/eclipse
